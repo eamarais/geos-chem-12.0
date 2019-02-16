@@ -3256,6 +3256,81 @@ CONTAINS
        IF ( RC /= HCO_SUCCESS ) RETURN
 
        !----------------------------------------
+       ! %%%%% Anthropogenic DST1 %%%%%
+       !----------------------------------------
+
+       ! HEMCO species ID
+       HcoID = GetHemcoId( 'DST1', HcoState, LOC, RC )
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       ! Create diagnostic container
+       DiagnName = 'ANTHROPOGENIC_DST1'
+       CALL Diagn_Create( am_I_Root,                     & 
+                          HcoState  = HcoState,          &
+                          cName     = TRIM( DiagnName ), &
+                          ExtNr     = ExtNr,             &
+                          Cat       = CATEGORY_ANTHRO,   &
+                          Hier      = -1,                &
+                          HcoID     = HcoID,             &
+                          SpaceDim  = 3,                 &
+                          LevIDx    = -1,                &
+                          OutUnit   = 'kg/m2/s',        &
+                          COL       = HcoState%Diagn%HcoDiagnIDManual,  &
+                          AutoFill  = 1,                 &
+                          RC        = RC                  ) 
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       !----------------------------------------
+       ! %%%%% Anthropogenic DST3 %%%%%
+       !----------------------------------------
+
+       ! HEMCO species ID
+       HcoID = GetHemcoId( 'DST3', HcoState, LOC, RC )
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       ! Create diagnostic container
+       DiagnName = 'ANTHROPOGENIC_DST3'
+       CALL Diagn_Create( am_I_Root,                     & 
+                          HcoState  = HcoState,          &
+                          cName     = TRIM( DiagnName ), &
+                          ExtNr     = ExtNr,             &
+                          Cat       = CATEGORY_ANTHRO,   &
+                          Hier      = -1,                &
+                          HcoID     = HcoID,             &
+                          SpaceDim  = 3,                 &
+                          LevIDx    = -1,                &
+                          OutUnit   = 'kg/m2/s',        &
+                          COL       = HcoState%Diagn%HcoDiagnIDManual,  &
+                          AutoFill  = 1,                 &
+                          RC        = RC                  ) 
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       !----------------------------------------
+       ! %%%%% Anthropogenic DST4 %%%%%
+       !----------------------------------------
+
+       ! HEMCO species ID
+       HcoID = GetHemcoId( 'DST4', HcoState, LOC, RC )
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       ! Create diagnostic container
+       DiagnName = 'ANTHROPOGENIC_DST4'
+       CALL Diagn_Create( am_I_Root,                     & 
+                          HcoState  = HcoState,          &
+                          cName     = TRIM( DiagnName ), &
+                          ExtNr     = ExtNr,             &
+                          Cat       = CATEGORY_ANTHRO,   &
+                          Hier      = -1,                &
+                          HcoID     = HcoID,             &
+                          SpaceDim  = 3,                 &
+                          LevIDx    = -1,                &
+                          OutUnit   = 'kg/m2/s',        &
+                          COL       = HcoState%Diagn%HcoDiagnIDManual,  &
+                          AutoFill  = 1,                 &
+                          RC        = RC                  ) 
+       IF ( RC /= HCO_SUCCESS ) RETURN
+
+       !----------------------------------------
        ! %%%%% Anthropogenic NH3 %%%%%
        !----------------------------------------
 
