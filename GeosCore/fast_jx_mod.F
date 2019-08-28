@@ -1640,7 +1640,7 @@ c---check on overflow of arrays, cut off JXTRA at lower L if too many levels
       ! print error and cut off JXTRAL at lower L if too many levels
       if ( failed ) then
           IF ( Input_Opt%FJX_EXTRAL_ERR ) THEN
-             write(6,'(A,2I5,F9.2)') 'N_/L2_/L2-cutoff JXTRA:',NX,L2X,L2
+             write(6,'(A,3I5)') 'N_/L2_/L2-cutoff JXTRA:',NX,L2X,L2
           ENDIF
           do L = L2,1,-1
             JXTRA(L) = 0
@@ -1658,7 +1658,7 @@ c---check on overflow of arrays, cut off JXTRA at lower L if too many levels
        do L2 = L2X,1,-1
          JTOTL  = JTOTL + JXTRA(L2)
          if (JTOTL .gt. NX/2)  then
-          write(6,'(A,2I5,F9.2)') 'N_/L2_/L2-cutoff JXTRA:',NX,L2X,L2
+          write(6,'(A,3I5)') 'N_/L2_/L2-cutoff JXTRA:',NX,L2X,L2
           do L = L2,1,-1
             JXTRA(L) = 0
           enddo
@@ -1819,7 +1819,7 @@ c---check on overflow of arrays, cut off JXTRA at lower L if too many levels
       JXUNIT = findFreeLUN()
 
       ! Define data directory for FAST-JX input
-      DATA_DIR = TRIM( Input_Opt%CHEM_INPUTS_DIR )//'FAST_JX/v2018-09/'
+      DATA_DIR = TRIM( Input_Opt%CHEM_INPUTS_DIR )//'FAST_JX/v2019-04/'
 
       !=====================================================================
       ! Read in fast-J X-sections (spectral data)
@@ -2469,7 +2469,7 @@ c---TROP-QUICK  (must scale solar flux for W=5)
       LBRC = Input_Opt%LBRC
             
       ! Define data directory for FAST-JX input
-      DATA_DIR = TRIM( Input_Opt%CHEM_INPUTS_DIR )//'FAST_JX/v2018-09/'
+      DATA_DIR = TRIM( Input_Opt%CHEM_INPUTS_DIR )//'FAST_JX/v2019-04/'
 
       ! IMPORTANT: aerosol_mod.F and dust_mod.F expect aerosols in this order
       DATA SPECFIL /"so4.dat","soot.dat","org.dat",

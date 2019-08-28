@@ -2024,21 +2024,45 @@
       IF ( .not. LWINDO2x25 ) THEN
 
 #if   defined( GRID4x5 ) || defined( NESTED_EU )
-         !%%%%% 4x5 BC REGION FOR EUROPE NESTED GRID %%%%%
+
+#if   defined( GEOS_FP )
+         !%%%%% 4x5 BC REGION FOR EUROPE NESTED GRID (GEOS-FP)
+         I1_BC_EU = 34                       ! 4x5  lon index, LL corner
+         J1_BC_EU = 32                       ! 4x5  lat index, LL corner
+         I2_BC_EU = 45                       ! 4x5  lon index, UR corner
+         J2_BC_EU = 39                       ! 4x5  lat index, UR corner
+
+#elif defined( MERRA2 )
+         !%%%%% 4x5 BC REGION FOR EUROPE NESTED GRID (MERRA2)
          I1_BC_EU = 31                       ! 4x5  lon index, LL corner
          J1_BC_EU = 31                       ! 4x5  lat index, LL corner
          I2_BC_EU = 47                       ! 4x5  lon index, UR corner
          J2_BC_EU = 41                       ! 4x5  lat index, UR corner
 #endif
 
+#endif
+
       ELSE
 
 #if   defined( GRID2x25 ) || defined( NESTED_EU )
-         !%%%%% 2x25 BC REGION FOR EUROPE NESTED GRID %%%%%
+
+#if   defined( GEOS_FP )
+         !%%%%% 2x25 BC REGION FOR EUROPE NESTED GRID (GEOS_FP)
+         I1_BC_EU = 67                       ! 2x25 lon index, LL corner
+         J1_BC_EU = 62                       ! 2x25 lat index, LL corner
+         I2_BC_EU = 89                       ! 2x25 lon index, UR corner
+         J2_BC_EU = 77                       ! 2x25 lat index, UR corner
+
+#elif defined( MERRA2 )
+
+         !%%%%% 2x25 BC REGION FOR EUROPE NESTED GRID (MERRA2)
          I1_BC_EU = 61                       ! 2x25 lon index, LL corner
          J1_BC_EU = 61                       ! 2x25 lat index, LL corner
          I2_BC_EU = 93                       ! 2x25 lon index, UR corner
          J2_BC_EU = 81                       ! 2x25 lat index, UR corner
+
+#endif
+
 #endif
 
       ENDIF
@@ -2047,7 +2071,7 @@
       IM_BC_EU = I2_BC_EU - I1_BC_EU + 1
       JM_BC_EU = J2_BC_EU - J1_BC_EU + 1
  
-      ! TPCORE NA internal transport window offset
+      ! TPCORE EU internal transport window offset
       I0_BC_EU = I1_BC_EU - 1
       J0_BC_EU = J1_BC_EU - 1
 

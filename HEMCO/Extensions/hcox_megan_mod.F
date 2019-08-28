@@ -615,7 +615,7 @@
 !$OMP+PRIVATE( DIURFACT,  DIURORVC,  BIOG_ALPH                         ) 
 !$OMP+PRIVATE( BIOG_LIMO, BIOG_ALCO, X, Y, RC                          )
 
-      !-----------------------------------------------------------------
+      !----------------------------------------------------------------
       ! Loop over all grid boxes 
       !-----------------------------------------------------------------
       DO J = 1, HcoState%NY 
@@ -706,6 +706,17 @@
 
          !FP_ISOP (6/2009)
          EMIS_ISOP = Inst%ISOP_SCALING * EMIS_ISOP
+
+         ! PRINT STATEMENT CHECK:
+         ! 4x5:
+         !IF ( I .eq. 42 .and. J .eq. 33 ) PRINT*,
+         ! Nested EU:
+ !        IF ( I .ge. 121 .and. I .le. 137  .and. J .ge. 14 .and.
+ !    &        J .le. 30 ) 
+ !    &   'Isoprene emissions: ', EMIS_ISOP
+
+!rint,gridinfo.xmid(42),gridinfo.ymid(33)
+!           22.5-27.5      36-40
 
          ! Write isoprene emissions into tracer tendency array
          IF ( Inst%IDTISOP > 0 ) THEN

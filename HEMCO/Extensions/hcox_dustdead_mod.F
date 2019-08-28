@@ -5519,7 +5519,15 @@ c Fix up for negative argument, erf, etc.
       ! Global mass flux tuning factor (a posteriori) [frc]
 #if   defined( GEOS_FP ) && defined( GRID025x03125 )
 
-#if defined(NESTED_CH)
+#if defined(NESTED_EU)
+
+      !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      !%%%       NOTE: NEED TO SCALE THIS FOR GEOS-FP nested EU!         %%%
+      !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      ! For now use scaling factor for 05x0666 grid (eam, 02/12/2019)
+      FLX_MSS_FDG_FCT = 3.23d-4
+
+#elif defined(NESTED_CH)
 
       !%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
       !%%%       NOTE: NEED TO SCALE THIS FOR GEOS-FP nested CH!         %%%

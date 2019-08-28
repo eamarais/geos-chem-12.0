@@ -5695,6 +5695,8 @@
 110   FORMAT(161E10.3)
 #elif defined( GRID025x03125 ) && defined( NESTED_NA )
 110   FORMAT(202E10.3)
+#elif defined( GRID025x03125 ) && defined( NESTED_EU )
+110   FORMAT(115E10.3)
 #else
       ! use 2x25 as default 
 110   FORMAT(91E10.3)

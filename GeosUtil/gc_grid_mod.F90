@@ -1502,7 +1502,7 @@ CONTAINS
       TLON = INT( ( LON + 180e+0_fp ) / DISIZE + 1.5e+0_fp )
       TLAT = INT( ( LAT +  90e+0_fp ) / DJSIZE + 1.5e+0_fp )
 
-#if defined( NESTED_CH ) || defined( NESTED_NA ) || defined( NESTED_CA )
+#if defined( NESTED_CH ) || defined( NESTED_NA ) || defined( NESTED_CA ) || defined( NESED_EU )
       TLON = TLON - I0
       TLAT = TLAT - J0
       IF ( TLAT < 1 .or. TLAT > JJPAR ) THEN
