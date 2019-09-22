@@ -729,10 +729,12 @@ CONTAINS
 
              ! Halve the Kc (cloud condensate -> precip) rate
              ! for the temperature range 237 K <= T < 258 K.
-             KcScale  = (/ 1.0_fp, 0.5_fp, 1.0_fp /)
+             !KcScale  = (/ 1.0_fp, 0.5_fp, 1.0_fp /)
+             KcScale  = (/ 0.5_fp, 0.25_fp, 0.5_fp /)
 
              ! Turn off rainout only when 237 K <= T < 258K.
-             RainEff  = (/ 1.0_fp, 0.0_fp, 1.0_fp /)
+             !RainEff  = (/ 1.0_fp, 0.0_fp, 1.0_fp /)
+             RainEff  = (/ 0.5_fp, 0.0_fp, 0.5_fp /)
 
              Formula       = ''
              MW_g          = 12.01_fp
@@ -1650,7 +1652,9 @@ CONTAINS
 
              ! Allow rainout of HNO3 when T < 258K, becasue HNO3
              ! is considered to be IN.
-             RainEff       = (/ 1.0_fp, 1.0_fp, 1.0_fp /)
+             !RainEff       = (/ 1.0_fp, 1.0_fp, 1.0_fp /)
+             ! No removal in mixing cloud
+             RainEff = (/ 1.0_fp, 0.0_fp, 1.0_fp /)
 
              FullName      = 'Nitric acid'
              Formula       = 'HNO3'
@@ -2695,10 +2699,12 @@ CONTAINS
 
              ! Halve the Kc (cloud condensate -> precip) rate
              ! for the temperature range 237 K <= T < 258 K.
-             KcScale       = (/ 1.0_fp, 0.5_fp, 1.0_fp /)
+             !KcScale       = (/ 1.0_fp, 0.5_fp, 1.0_fp /)
+             KcScale  = (/ 0.5_fp, 0.25_fp, 0.5_fp /)
 
              ! Turn off rainout only when 237 K <= T < 258K.
-             RainEff       = (/ 1.0_fp, 0.0_fp, 1.0_fp /)
+             !RainEff       = (/ 1.0_fp, 0.0_fp, 1.0_fp /)
+             RainEff  = (/ 0.5_fp, 0.0_fp, 0.5_fp /)
 
              Formula       = ''
              MW_g          = 12.01_fp
